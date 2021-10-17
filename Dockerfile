@@ -26,7 +26,6 @@ RUN mkdir /run/sshd
 RUN wstunnel -s 0.0.0.0:80 &
 RUN whereis sshd
 RUN whereis init
-RUN /usr/sbin/sshd -D
 RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config 
 RUN echo root:tixiaohan|chpasswd
 STOPSIGNAL SIGRTMIN+3

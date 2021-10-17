@@ -1,0 +1,19 @@
+version: "2.1"
+
+services:
+  test:
+    tty: true
+    build: ./build/bionic
+    restart: on-failure
+    network_mode: bridge
+    mem_limit: 1G
+    security_opt:
+      - seccomp=unconfined
+    cap_add:
+      - SYS_ADMIN
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    tmpfs:
+      - /tmp
+      - /run
+      - /run/lock
